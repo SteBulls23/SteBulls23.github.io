@@ -1,0 +1,42 @@
+﻿@page "/instagram"
+
+@inject NavigationManager NavigationManager
+
+<link href="css/instagram.css" rel="stylesheet"/>
+
+<PageTitle>Instagram</PageTitle>
+
+<div class="intestazionePagina">
+    <h1 class="intestazione"><strong>INSTAGRAM</strong></h1>
+    <h4 class="intestazione"><strong> "Capture and Share the World's Moments"</strong></h4>
+</div>
+
+<div class="imageInstagram">
+    <img src="images/Instagram Logo.jpg" alt="Logo di Instagram" class="section"/>
+</div>
+<div class="instagramStory">
+    <h2 class="section"><strong>LA STORIA DI INSTAGRAM</strong></h2>
+    <h5 class="section">
+        <strong>
+            Instagram è stata fondata nel 2010 da Kevin Systrom e Mike Krieger come un'app per condividere foto con filtri. 
+            Acquisita da Facebook nel 2012, ha visto una crescita esplosiva grazie a funzionalità come le storie. 
+            Oggi conta oltre un miliardo di utenti mensili ed è una delle piattaforme di social media più influenti al mondo. 
+            Dalla sua fondazione, Instagram ha continuato a evolversi, introducendo nuove funzionalità come i video, le dirette e lo shopping integrato. 
+            La piattaforma ha influenzato profondamente la cultura visiva contemporanea e ha cambiato il modo in cui le persone comunicano e condividono esperienze online.
+        </strong>
+    </h5>
+</div>
+
+<div class="footer">
+    <h3 class="footerH3"><strong>Per ulteriori informazioni visita la pagina Wikipedia di <a href="https://it.wikipedia.org/wiki/Instagram">Instagram</a></strong></h3>
+    <h3 class="footerH3"><strong>Per accedere o iscriverti a Instagram premi <a href="https://www.instagram.com/">qui</a></strong></h3>
+    <button class="footerButton" @onclick="NavigateToHome"><strong>HOME</strong></button>
+    <h5 class="footerH5"><strong>Seguici anche su Instagram: steBulls23!</strong></h5>
+</div>
+
+@code {
+    private void NavigateToHome()
+    {
+        NavigationManager.NavigateTo("/home");
+    }
+}

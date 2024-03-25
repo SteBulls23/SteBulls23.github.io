@@ -1,0 +1,41 @@
+﻿@page "/whatsapp"
+
+@inject NavigationManager NavigationManager
+
+<link href="css/whatsapp.css" rel="stylesheet"/>
+
+<PageTitle>WhatsApp</PageTitle>
+
+<div class="intestazionePagina">
+    <h1 class="intestazione"><strong>WHATSAPP</strong></h1>
+    <h4 class="intestazione"><strong>"Simple, Reliable, Secure"</strong></h4>
+</div>
+
+<div class="imageWhatsApp">
+    <img src="images/WhatsApp Logo.jpg" alt="Logo di WhatsApp" class="section"/>
+</div>
+<div class="whatsAppStory">
+    <h2 class="section"><strong>LA STORIA DI WHATSAPP</strong></h2>
+    <h5 class="section">
+        <strong>
+            WhatsApp è stata fondata nel 2009 da Jan Koum e Brian Acton. 
+            L'applicazione è nata con l'obiettivo di fornire una piattaforma di messaggistica istantanea semplice e affidabile. 
+            Nel corso degli anni, WhatsApp è diventata una delle app di messaggistica più popolari al mondo, offrendo funzionalità come la messaggistica crittografata end-to-end, chiamate vocali e video, nonché la condivisione di file multimediali. 
+            Nel 2014, WhatsApp è stata acquisita da Facebook, permettendo un'ulteriore espansione della sua base utenti e delle sue funzionalità.
+        </strong>
+    </h5>
+</div>
+
+<div class="footer">
+    <h3 class="footerH3"><strong>Per ulteriori informazioni visita la pagina Wikipedia di <a href="https://it.wikipedia.org/wiki/WhatsApp">WhatsApp</a></strong></h3>
+    <h3 class="footerH3"><strong>Per accedere o iscriverti a WhatsApp premi <a href="https://www.whatsapp.com/download?lang=it_IT">qui</a></strong></h3>
+    <button class="footerButton" @onclick="NavigateToHome"><strong>HOME</strong></button>
+    <h5 class="footerH5"><strong>Seguiteci anche su Instagram: steBulls23!</strong></h5>
+</div>
+
+@code {
+    private void NavigateToHome()
+    {
+        NavigationManager.NavigateTo("/home");
+    }
+}

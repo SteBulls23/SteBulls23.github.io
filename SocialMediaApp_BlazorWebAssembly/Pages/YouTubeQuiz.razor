@@ -1,0 +1,205 @@
+﻿@page "/youTubeQuiz"
+
+@inject IJSRuntime JSRuntime
+
+<link href="css/youtubeQuiz.css" rel="stylesheet"/>
+
+<PageTitle>YouTube quiz</PageTitle>
+
+<script>
+    window.deselectPreviousAnswers = function () {
+        var radios = document.querySelectorAll('input[type="radio"]');
+        radios.forEach(function (radio) {
+            radio.checked = false;
+        });
+    }
+</script>
+
+<div class="intestazionePagina">
+    <h1 class="intestazione"><strong>QUIZ SU YOUTUBE</strong></h1>
+    <h4 class="intestazione"><strong>Mettiti alla prova e divertiti con il nostro quiz su YouTube!</strong></h4>
+</div>
+
+<h2><strong>Rispondi alle seguenti domande per completare il quiz:</strong></h2>
+
+@foreach (var question in Questions)
+{
+    <div class="domanda">
+        <h4 class="domandaH4"><strong>@question.QuestionText</strong></h4>
+        <ul class="opzioni">
+            @foreach (var answer in question.Answers)
+            {
+                <li><label><input type="radio" name="@question.Id" @onclick="() => question.SelectedAnswer = answer.AnswerText"><strong>@answer.AnswerText</strong></label></li>
+            }
+        </ul>
+    </div>
+}
+
+<div class="punteggio">
+    <button @onclick="calcolaPunteggio"><strong>PUNTEGGIO</strong></button>
+    <button @onclick="ritentaQuiz"><strong>RITENTA IL QUIZ</strong></button>
+</div>
+
+<h3><strong>Punteggio: @score / @Questions.Count</strong></h3>
+
+@if (risposteUtente.Any())
+{
+    <h3 class="statistiche"><strong>Statistiche risposte:</strong></h3>
+
+    <ul class="statistiche">
+        @foreach (var domanda in Questions)
+        {
+            var risposteDomanda = risposteUtente.Where(r => r.DomandaId == domanda.Id);
+            var risposteCorrette = risposteDomanda.Count(r => r.RispostaCorretta);
+            var risposteErrate = risposteDomanda.Count() - risposteCorrette;
+
+            <li>
+                <strong>
+                    Domanda: @domanda.QuestionText - Risposte corrette: @risposteCorrette, risposte errate: @risposteErrate
+                    @if (risposteErrate > 0)
+                    {
+                        <span style="color: limegreen"><strong>  Risposta corretta: @domanda.Answers.FirstOrDefault(a => a.IsCorrect)?.AnswerText</strong></span>
+                    }
+                </strong>
+            </li>
+        }
+    </ul>
+}
+
+<h5><strong>Quiz disponibili => <NavLink href="/quiz">QUIZ DISPONIBILI</NavLink></strong></h5>
+
+@code {
+    private class Answer
+    {
+        public string? AnswerText { get; set; } = string.Empty;
+        public bool IsCorrect { get; set; } = false;
+    }
+
+    private class Question
+    {
+        public string Id { get; set; } = string.Empty;
+        public string QuestionText { get; set; } = string.Empty;
+        public List<Answer> Answers { get; set; } = [];
+        public string SelectedAnswer { get; set; } = string.Empty;
+    }
+
+    private class RispostaUtente
+    {
+        public string DomandaId { get; set; } = string.Empty;
+        public string RispostaData { get; set; } = string.Empty;
+        public bool RispostaCorretta { get; set; } = false;
+    }
+
+    private List<Question> Questions = new List<Question>()
+    {
+       new Question
+       {
+           Id = "q1",
+           QuestionText = "1) Quale piattaforma ha acquisito YouTube nel 2006?",
+           Answers = new List<Answer>
+           {
+                new Answer { AnswerText = "Google", IsCorrect = true },
+                new Answer { AnswerText = "Facebook", IsCorrect = false },
+                new Answer { AnswerText = "Yahoo", IsCorrect = false },
+                new Answer { AnswerText = "Amazon", IsCorrect = false }
+           }
+       },
+
+       new Question
+       {
+           Id = "q2",
+           QuestionText = "2) Qual è la durata massima di un video standard su YouTube?",
+           Answers = new List<Answer>
+           {
+                new Answer { AnswerText = "10 minuti", IsCorrect = false },
+                new Answer { AnswerText = "15 minuti", IsCorrect = false },
+                new Answer { AnswerText = "20 minuti", IsCorrect = false },
+                new Answer { AnswerText = "30 minuti", IsCorrect = true }
+           }
+       },
+
+       new Question
+       {
+           Id = "q3",
+           QuestionText = "3) Qual è il nome del fondatore di YouTube?",
+           Answers = new List<Answer>
+           {
+                new Answer { AnswerText = "Steve Chen", IsCorrect = false },
+                new Answer { AnswerText = "Chad Hurley", IsCorrect = false },
+                new Answer { AnswerText = "Jawed Karim", IsCorrect = false },
+                new Answer { AnswerText = "Tutte le risposte sonno corrette", IsCorrect = true }
+           }
+       },
+
+       new Question
+       {
+           Id = "q4",
+           QuestionText = "4) In quale anno è stata fondata YouTube?",
+           Answers = new List<Answer>
+           {
+                new Answer { AnswerText = "2003", IsCorrect = false },
+                new Answer { AnswerText = "2004", IsCorrect = false },
+                new Answer { AnswerText = "2005", IsCorrect = true },
+                new Answer { AnswerText = "2006", IsCorrect = false }
+           }
+       },
+
+       new Question
+       {
+           Id = "q5",
+           QuestionText = "5) Qual è il nome del premio annuale di YouTube per il miglior contenuto?",
+           Answers = new List<Answer>
+           {
+                new Answer { AnswerText = "YouTube Choice Awards", IsCorrect = false },
+                new Answer { AnswerText = "YouTube Awards", IsCorrect = true },
+                new Answer { AnswerText = "YouTube Creator Awards", IsCorrect = false },
+                new Answer { AnswerText = "YouTube Golden Play Button", IsCorrect = false }
+           }
+       },
+    };
+    
+    private List<RispostaUtente> risposteUtente = new List<RispostaUtente>();
+
+    private int score;
+
+    private void calcolaPunteggio()
+    {
+        score = 0;
+        risposteUtente.Clear();
+
+        foreach (var question in Questions)
+        {
+            var selectedAnswer = question.Answers.FirstOrDefault(a => a.IsCorrect);
+            var selectedRadio = question.Answers.FirstOrDefault(a => a.AnswerText == question.SelectedAnswer);
+
+            if (selectedRadio != null)
+            {
+                var rispostaUtente = new RispostaUtente
+                    {
+                        DomandaId = question.Id,
+                        RispostaData = selectedAnswer.AnswerText,
+                        RispostaCorretta = selectedRadio.IsCorrect
+                    };
+
+                risposteUtente.Add(rispostaUtente);
+
+                if (selectedRadio.IsCorrect)
+                {
+                    score++;
+                }
+            }
+        }
+    }
+
+    private async Task ritentaQuiz()
+    {
+        foreach (var question in Questions)
+        {
+            question.SelectedAnswer = null;
+        }
+
+        score = 0;
+
+        await JSRuntime.InvokeVoidAsync("deselectPreviousAnswers");
+    }
+}

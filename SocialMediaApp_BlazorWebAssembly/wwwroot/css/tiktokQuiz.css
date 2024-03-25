@@ -1,0 +1,75 @@
+﻿.intestazionePagina {
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    border: 5px solid red;
+    border-radius: 15px;
+}
+
+h1.intestazione {
+    color: blue;
+}
+
+h4.intestazione {
+    color: red;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.domanda {
+    background-color: white;
+    color: black;
+    margin-top: 25px;
+    padding: 10px;
+    border: 5px solid red;
+    border-radius: 15px;
+}
+
+.opzioni {
+    font-size: large;
+}
+
+.punteggio {
+    text-align: center;
+}
+
+button {
+    background-color: red;
+    color: white;
+    text-align: center;
+    width: 200px;
+    height: 40px;
+    margin-top: 25px;
+    margin-left: 20px;
+    border: 5px solid white;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+h3 {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+h3.statistiche {
+    color: white;
+    text-align: center;
+    margin-top: 25px;
+}
+
+ul.statistiche {
+    color: white;
+    margin-top: 10px;
+    font-size: large;
+}
+
+h5 {
+    color: white;
+    text-align: center;
+    margin-top: 25px
+}

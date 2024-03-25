@@ -1,0 +1,33 @@
+﻿@page "/fondatoriSocial"
+
+@inject NavigationManager NavigationManager
+
+<link href="css/fondatoriSocial.css" rel="stylesheet"/>
+
+<PageTitle>Fondatori social media</PageTitle>
+
+<div class="intestazionePagina">
+    <h1 class="intestazione"><strong>I FONDATORI DEI SOCIAL</strong></h1>
+    <h4 class="intestazione"><strong>Benvenuto nella sezione dedicata ai fondatori dei social presenti sul nostro sito!</strong></h4>
+</div>
+
+<div class="fondatoriDisponibili">
+    <h1 class="fondatori"><strong>I 5 FONDATORI:</strong></h1>
+    <h2 class="fondatori"><strong>1) Il fondatore di Facebook => <NavLink href="/markZuckerberg">MARK ZUCKERBERG</NavLink></strong></h2>
+    <h2 class="fondatori"><strong>2) Il fondatore di YouTube => <NavLink href="/jawedKarim">JAWED KARIM</NavLink></strong></h2>
+    <h2 class="fondatori"><strong>3) Il fondatore di WhatsApp => <NavLink href="/janKoum">JAN KOUM</NavLink></strong></h2>
+    <h2 class="fondatori"><strong>4) Il fondatore di Instagram => <NavLink href="/kevinSystrom">KEVIN SYSTROM</NavLink></strong></h2>
+    <h2 class="fondatori"><strong>5) Il fondatore di TikTok => <NavLink href="/aleixZhu">ALEIX ZHU</NavLink></strong></h2>
+</div>
+
+<div class="footer">
+    <button class="footerButtons" @onclick="NavigateToHome"><strong>HOME</strong></button>
+    <h5 class="footerH5"><strong>Seguiteci anche su Instagram: steBulls23!</strong></h5>
+</div>
+
+@code {
+    private void NavigateToHome()
+    {
+        NavigationManager.NavigateTo("/home");
+    }
+}

@@ -1,0 +1,55 @@
+﻿.intestazionePagina {
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    border: 5px solid red;
+    border-radius: 15px;
+}
+
+h1.intestazione {
+    color: blue;
+}
+
+h4.intestazione {
+    color: red;
+}
+
+.fondatoriDisponibili {
+    text-align: center;
+    background-color: white;
+    border: 5px solid red;
+    border-radius: 15px;
+    margin-top: 25px;
+}
+
+h1.fondatori {
+    color: blue;
+    margin-top: 25px;
+}
+
+h2.fondatori {
+    color: red;
+    margin-top: 25px;
+}
+
+.footer {
+    text-align: center;
+}
+
+.footerButtons {
+    background-color: red;
+    color: white;
+    text-align: center;
+    width: 200px;
+    height: 40px;
+    margin-top: 25px;
+    margin-left: 20px;
+    border: 5px solid white;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+h5.footerH5 {
+    color: white;
+    padding-top: 40px;
+}

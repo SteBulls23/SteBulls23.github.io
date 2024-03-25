@@ -1,0 +1,43 @@
+﻿@page "/youtube"
+
+@inject NavigationManager NavigationManager
+
+<link href="css/youtube.css" rel="stylesheet"/>
+
+<PageTitle>YouTube</PageTitle>
+
+<div class="intestazionePagina">
+    <h1 class="intestazione"><strong>YOUTUBE</strong></h1>
+    <h4 class="intestazione"><strong>"Broadcast Yourself"</strong></h4>
+</div>
+
+<div class="imageYouTube">
+    <img src="images/YouTube Logo.jpg" alt="Logo di YouTube" class="section"/>
+</div>
+<div class="youTubeStory">
+    <h2 class="section"><strong>LA STORIA DI YOUTUBE</strong></h2>
+    <h5 class="section">
+        <strong>
+            YouTube è stato fondato nel 2005 da Steve Chen, Chad Hurley e Jawed Karim. 
+            Karim ha caricato il primo video, "Me at the zoo". 
+            Nel 2006, YouTube è stato acquistato da Google. 
+            Da allora, è cresciuto diventando la principale piattaforma di condivisione video al mondo, offrendo una vasta gamma di contenuti e funzionalità, incluso il monetizzazione per gli utenti. 
+            Dopo l'acquisizione da parte di Google nel 2006, YouTube ha continuato a espandersi introducendo nuove funzionalità come la trasmissione in diretta e diventando un punto di riferimento per l'intrattenimento online. 
+            Oggi, YouTube conta miliardi di utenti attivi mensili e offre una vasta varietà di contenuti, dai video tutorial alla musica, ai vlog e molto altro ancora.
+        </strong>
+    </h5>
+</div>
+
+<div class="footer">
+    <h3 class="footerH3"><strong>Per ulteriori informazioni visita la pagina Wikipedia di <a href="https://it.wikipedia.org/wiki/YouTube">YouTube</a></strong></h3>
+    <h3 class="footerH3"><strong>Per accedere o iscriverti a YouTube premi <a href="https://www.youtube.com/?gl=IT&hl=it">qui</a></strong></h3>
+    <button class="footerButton" @onclick="NavigateToHome"><strong>HOME</strong></button>
+    <h5 class="footerH5"><strong>Seguici anche su Instagram: steBulls23!</strong></h5>
+</div>
+
+@code {
+    private void NavigateToHome()
+    {
+        NavigationManager.NavigateTo("/home");
+    }
+}

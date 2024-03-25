@@ -1,0 +1,41 @@
+﻿@page "/facebook"
+
+@inject NavigationManager NavigationManager
+
+<link href="css/facebook.css" rel="stylesheet"/>
+
+<PageTitle>Facebook</PageTitle>
+
+<div class="intestazionePagina">
+    <h1 class="intestazione"><strong>FACEBOOK</strong></h1>
+    <h4 class="intestazione"><strong>"Move fast with stable infra" (Mark Zuckerberg)</strong></h4>
+</div>
+
+<div class="imageFacebook">
+    <img src="images/Facebook Logo.jpg" alt="Logo di Facebook" class="section"/>
+</div>
+<div class="facebookStory">
+    <h2 class="section"><strong>LA STORIA DI FACEBOOK</strong></h2>
+    <h5 class="section">
+        <strong>
+            Facebook è stata fondata nel 2004 da Mark Zuckerberg e i suoi compagni di stanza di Harvard, Chris Hughes, Eduardo Saverin e Dustin Moskovitz. 
+            Inizialmente concepita come una piattaforma sociale limitata agli studenti universitari, ha rapidamente guadagnato popolarità, estendendo l'accesso a altre università e infine al pubblico generale nel 2006. 
+            Nel corso degli anni, Facebook ha introdotto nuove funzionalità, acquisito altre società come Instagram e WhatsApp e ha navigato attraverso vari scandali e controversie legate alla privacy e alla gestione dei dati degli utenti. 
+            Ad oggi, Facebook è una delle piattaforme sociali più utilizzate al mondo, con miliardi di utenti attivi mensili.
+        </strong>
+    </h5>
+</div>
+
+<div class="footer">
+    <h3 class="footerH3"><strong>Per ulteriori informazioni visita la pagina Wikipedia di <a href="https://it.wikipedia.org/wiki/Facebook">Facebook</a></strong></h3>
+    <h3 class="footerH3"><strong>Per accedere o iscriverti a Facebook premi <a href="https://www.facebook.com/?locale=it_IT">qui</a></strong></h3>
+    <button class="footerButton" @onclick="NavigateToHome"><strong>HOME</strong></button>
+    <h5 class="footerH5"><strong>Seguici anche su Instagram: steBulls23!</strong></h5>
+</div>
+
+@code {
+    private void NavigateToHome()
+    {
+        NavigationManager.NavigateTo("/home");
+    }
+}

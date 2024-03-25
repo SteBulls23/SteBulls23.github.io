@@ -1,0 +1,33 @@
+﻿@page "/quiz"
+
+@inject NavigationManager NavigationManager
+
+<link href="css/quiz.css" rel="stylesheet"/>
+
+<PageTitle>Sezione quiz</PageTitle>
+
+<div class="intestazionePagina">
+    <h1 class="intestazione"><strong>SEZIONE QUIZ</strong></h1>
+    <h4 class="intestazione"><strong>Benvenuto nella sezione dedicata ai quiz! Mettiti alla prova e divertiti!</strong></h4>
+</div>
+
+<div class="quizDisponibili">
+    <h1 class="quiz"><strong>QUIZ DISPONIBILI:</strong></h1>
+    <h2 class="quiz"><strong>1) Quiz su Facebook => <NavLink href="/facebookQuiz">FACEBOOK QUIZ</NavLink></strong></h2>
+    <h2 class="quiz"><strong>2) Quiz su YouTube => <NavLink href="/youTubeQuiz">YOUTUBE QUIZ</NavLink></strong></h2>
+    <h2 class="quiz"><strong>3) Quiz su WhatsApp => <NavLink href="/whatsAppQuiz">WHATSAPP QUIZ</NavLink></strong></h2>
+    <h2 class="quiz"><strong>4) Quiz su Instagram => <NavLink href="/instagramQuiz">INSTAGRAM QUIZ</NavLink></strong></h2>
+    <h2 class="quiz"><strong>5) Quiz su TikTok => <NavLink href="/tikTokQuiz">TIKTOK QUIZ</NavLink></strong></h2>
+</div>   
+
+<div class="footer">
+    <button class="footerButtons" @onclick="NavigateToHome"><strong>HOME</strong></button>
+    <h5 class="footerH5"><strong>Seguiteci anche su Instagram: steBulls23!</strong></h5>
+</div>
+
+@code {
+    private void NavigateToHome()
+    {
+        NavigationManager.NavigateTo("/home");
+    }
+}

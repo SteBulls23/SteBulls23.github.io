@@ -1,0 +1,41 @@
+﻿@page "/tiktok"
+
+@inject NavigationManager NavigationManager
+
+<link href="css/tiktok.css" rel="stylesheet"/>
+
+<PageTitle>TikTok</PageTitle>
+
+<div class="intestazionePagina">
+    <h1 class="intestazione"><strong>TIKTOK</strong></h1>
+    <h4 class="intestazione"><strong>"Make Your Day"</strong></h4>
+</div>
+
+<div class="imageTikTok">
+    <img src="images/TikTok Logo.jpg" alt="Logo di TikTok" class="section"/>
+</div>
+<div class="tikTokStory">
+    <h2 class="section"><strong>LA STORIA DI TIKTOK</strong></h2>
+    <h5 class="section">
+        <strong>
+            TikTok è stata lanciata nel 2016 dalla società cinese ByteDance come "Douyin" in Cina. 
+            Nel 2017, ByteDance ha acquisito Musical.ly, un'app di social media con sede a Shanghai, e ha unito le due piattaforme per creare TikTok, lanciata internazionalmente nel 2018. 
+            La piattaforma è diventata rapidamente popolare grazie alla sua natura altamente interattiva e alla possibilità per gli utenti di creare e condividere brevi video musicali e di tendenza. 
+            TikTok ha conquistato un'ampia base di utenti in tutto il mondo e ha influenzato significativamente la cultura popolare e l'industria dell'intrattenimento.
+        </strong>
+    </h5>
+</div>
+
+<div class="footer">
+    <h3 class="footerH3"><strong>Per ulteriori informazioni visita la pagina Wikipedia di <a href="https://it.wikipedia.org/wiki/TikTok">TikTok</a></strong></h3>
+    <h3 class="footerH3"><strong>Per accedere o iscriverti a TikTok premi <a href="https://www.tiktok.com/it-IT/">qui</a></strong></h3>
+    <button class="footerButton" @onclick="NavigateToHome"><strong>HOME</strong></button>
+    <h5 class="footerH5"><strong>Seguiteci anche su Instagram: steBulls23!</strong></h5>
+</div>
+    
+@code {
+    private void NavigateToHome()
+    {
+        NavigationManager.NavigateTo("/home");
+    }
+}

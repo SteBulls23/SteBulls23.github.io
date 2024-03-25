@@ -1,0 +1,81 @@
+﻿@page "/home"
+
+@layout MainLayout
+
+@inject NavigationManager NavigationManager
+
+<link href="css/home.css" rel="stylesheet"/>
+
+<PageTitle>Home page</PageTitle>
+
+<div class="intestazionePagina">
+    <h1 class="intestazione"><strong>I SOCIAL MEDIA</strong></h1>
+    <h4 class="intestazione"><strong>Tutto quello che vorrai sapere sui social media, sul nostro sito lo potrai trovare!</strong></h4>
+</div>
+
+<div class="imageSocial">
+    <img src="images/SocialMediaImage.jpg" alt="Immagine dei Social Media" class="section"/>
+</div>
+<div class="socialMediaStory">
+    <h2 class="section"><strong>LA STORIA DEI SOCIAL MEDIA</strong></h2>
+    <h5 class="section">
+        <strong>
+                La storia dei social media inizia negli anni '70 e '80 con l'emergere delle BBS (Bulletin Board Systems), che consentivano la comunicazione testuale online. 
+                Negli anni '90, con la diffusione di Internet, si svilupparono i primi servizi online come Six Degrees, Friendster e MySpace. 
+                Nel 2004, Facebook fu lanciato da Mark Zuckerberg, seguito da Twitter nel 2006 e Instagram nel 2010. 
+                L'avvento degli smartphone ha portato alla crescita dei social media mobile, con l'ascesa di piattaforme come Snapchat e TikTok. 
+                Nel corso degli anni, i social media hanno avuto un impatto significativo sulla società, influenzando la politica, la cultura e il modo in cui le persone comunicano e interagiscono online.
+        </strong>
+    </h5>
+</div>
+
+<div class="footer">
+    <h2 class="footerH2"><strong>I MIGLIORI 5 SOCIAL MEDIA:</strong></h2>
+    <button class="footerButtons" @onclick="NavigateToFacebook"><strong>FACEBOOK</strong></button>
+    <button class="footerButtons" @onclick="NavigateToYouTube"><strong>YOUTUBE</strong></button>
+    <button class="footerButtons" @onclick="NavigateToWhatsApp"><strong>WHATSAPP</strong></button>
+    <button class="footerButtons" @onclick="NavigateToInstagram"><strong>INSTAGRAM</strong></button>
+    <button class="footerButtons" @onclick="NavigateToTikTok"><strong>TIKTOK</strong></button>
+</div>
+
+<div class="afterFooter">
+    <button class="footerQuizButton" @onclick="NavigateToQuiz"><strong>SEZIONE QUIZ</strong></button>
+    <button class="footerFondatoriButton" @onclick="NavigateToFondatori"><strong>FONDATORI</strong></button>
+</div>
+
+@code {
+    private void NavigateToFacebook()
+    {
+        NavigationManager.NavigateTo("/facebook");
+    }
+
+    private void NavigateToYouTube()
+    {
+        NavigationManager.NavigateTo("/youtube");
+    }
+
+    private void NavigateToWhatsApp()
+    {
+        NavigationManager.NavigateTo("/whatsapp");
+    }
+
+    private void NavigateToInstagram()
+    {
+        NavigationManager.NavigateTo("/instagram");
+    }
+
+    private void NavigateToTikTok()
+    {
+        NavigationManager.NavigateTo("/tiktok");
+    }
+
+    private void NavigateToQuiz()
+    {
+        NavigationManager.NavigateTo("/quiz");
+    }
+
+    private void NavigateToFondatori()
+    {
+        NavigationManager.NavigateTo("/fondatoriSocial");
+    }
+}
